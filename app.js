@@ -1,6 +1,7 @@
 // Set table data variable to the data variable in the UFO data file
 var tableData = data;
- // Reference the tbody element and the input and button ids within variables
+ 
+// Reference the tbody element and the input and button ids within variables
 var $tbody = document.querySelector("tbody");
 var $dateInput = document.querySelector("#datetime");
 var $stateInput = document.querySelector("#state");
@@ -8,9 +9,11 @@ var $filterBtn = document.querySelector("#filter-btn");
 var $cityInput = document.querySelector("#city");
 var $countryInput = document.querySelector("#country");
 var $shapeInput = document.querySelector("#shape");
- // Add an event listener to the filterButton, call handleFilterButtonClick function when clicked
+ 
+// Add an event listener to the filterButton, call handleFilterButtonClick function when clicked
 $filterBtn.addEventListener("click", handleFilterButtonClick);
- // renderTable renders the filteredSightings to the tbody
+ 
+// renderTable renders the filteredSightings to the tbody
 function renderTable() {
   
   // Set the HTML content of the tbody element
@@ -35,7 +38,9 @@ function renderTable() {
     }
   }
 }
- function handleFilterButtonClick(event) {
+
+// handleFilterButtonClick sets up the filter button's event functionality
+function handleFilterButtonClick(event) {
   
   // Prevent page from refreshing
   event.preventDefault();
@@ -46,7 +51,8 @@ function renderTable() {
   var filterCity = $cityInput.value.trim().toLowerCase();
   var filterCountry = $countryInput.value.trim().toLowerCase();
   var filterShape = $shapeInput.value.trim().toLowerCase();
-   // Set sightingDate to an array of all sightings whose "date" matches the filter
+   
+  // Set sightingDate to an array of all sightings whose "date" matches the filter
   if (filterDate != "")
   {
     tableData = data.filter(function(sighting) 
@@ -65,45 +71,53 @@ function renderTable() {
     tableData = data.filter(function(sighting)
     {
       var sightingState = sighting.state;
-       // If true, add the sighting to sightingState, otherwise don't add it to sightingState
+       
+      // If true, add the sighting to sightingState, otherwise don't add it to sightingState
       return sightingState === filterState;
     });
   }
   else{tableData};
-   // Set sightingCity to an array of all sightings whose "city" matches the filter
+   
+  // Set sightingCity to an array of all sightings whose "city" matches the filter
   if (filterCity != "")
   {
     tableData = data.filter(function(sighting)
     {
       var sightingCity = sighting.city;
-       // If true, add the sighting to sightingCity, otherwise don't add it to sightingCity
+       
+      // If true, add the sighting to sightingCity, otherwise don't add it to sightingCity
       return sightingCity === filterCity;
     });
   }
    else{tableData};
+   
    // Set sightingCountry to an array of all sightings whose "country" matches the filter
   if(filterCountry != "")
   {
     tableData = data.filter(function(sighting)
     {
       var sightingCountry = sighting.country;
-       // If true, add the sighting to sightingCountry, otherwise don't add it to sightingCountry
+       
+      // If true, add the sighting to sightingCountry, otherwise don't add it to sightingCountry
       return sightingCountry === filterCountry;
     });
   }
   else{tableData};
-   // Set sightingShape to an array of all sightings whose "shape" matches the filter
+   
+  // Set sightingShape to an array of all sightings whose "shape" matches the filter
   if(filterShape != "")
   {
     tableData = data.filter(function(sighting)
     {
       var sightingShape = sighting.shape;
-       // If true, add the sighting to sightingShape, otherwise don't add it to sightingShape
+       
+      // If true, add the sighting to sightingShape, otherwise don't add it to sightingShape
       return sightingShape === filterShape;
     });
   }
   else{tableData};
  renderTable();
  }
+ 
  // Render the table for the first time the page loads
 renderTable();
