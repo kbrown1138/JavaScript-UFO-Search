@@ -107,7 +107,7 @@ function handleFilterButtonClick(event) {
   // Set sightingShape to an array of all sightings whose "shape" matches the filter
   if(filterShape != "")
   {
-    tableData = tableData.filter(function(sighting)
+    tableData = data.filter(function(sighting)
     {
       var sightingShape = sighting.shape;
 
@@ -123,6 +123,9 @@ renderTable();
 
 // Render the table for the first time the page loads
 renderTable();
+
+
+
 
 
 
