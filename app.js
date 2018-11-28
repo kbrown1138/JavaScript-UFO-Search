@@ -122,7 +122,7 @@ renderTable();
 }
 
 // Render the table for the first time the page loads
-renderTable();
+// renderTable();
 
 
 
