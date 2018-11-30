@@ -9,10 +9,7 @@ var $filterBtn = document.querySelector("#filter-btn");
 var $cityInput = document.querySelector("#city");
 var $countryInput = document.querySelector("#country");
 var $shapeInput = document.querySelector("#shape");
- 
-// Add an event listener to the filterButton, call handleFilterButtonClick function when clicked
-$filterBtn.addEventListener("click", handleFilterButtonClick);
- 
+
 // renderTable renders the filteredSightings to the tbody
 function renderTable() {
   
@@ -118,6 +115,9 @@ function handleFilterButtonClick(event) {
   else{tableData};
  renderTable();
  }
+
+// Add an event listener to the filterButton, call handleFilterButtonClick function when clicked
+$filterBtn.addEventListener("click", handleFilterButtonClick);
  
- // Render the table for the first time the page loads
+// Render the table for the first time the page loads
 renderTable();
